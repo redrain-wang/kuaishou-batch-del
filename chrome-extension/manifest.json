@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Kuaishou Console Bulk Delete",
+  "version": "0.1.0",
+  "description": "本扩展支持快手后台视频列表和合集里面批量删除视频操作。",
+  "permissions": ["scripting"],
+  "host_permissions": [
+    "https://cp.kuaishou.com/*"
+  ],
+  "content_scripts": [
+
+    {
+      "matches": ["https://cp.kuaishou.com/article/manage/video*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://cp.kuaishou.com/article/publish/collection*"],
+      "js": ["content_collection.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
