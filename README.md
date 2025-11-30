@@ -22,7 +22,7 @@
 
 ## 作者信息
 - 作者：redrain
-- 联系方式：redrain@yourdomain.com
+- 联系方式：wangredrain@gmail.com
 
 ## 许可
 仅供学习和个人使用，禁止用于非法用途。
