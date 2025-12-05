@@ -101,7 +101,6 @@
         pid = pid.replace(/_[^_]+$/, '');
       }
       if (el && pid && checkbox) {
-        console.log('Found item: ', pid); 
         items.push({ el, pid, checkbox });
       }
     });
