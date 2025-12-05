@@ -363,7 +363,6 @@
     // URL 变化监听（轮询法）
     setInterval(() => {
       if (location.href !== lastUrl) {
-        console.log('[ks-bulk-delete] URL changed:', lastUrl, '->', location.href);
         lastUrl = location.href;
         startCheckLoop();
       }
@@ -371,7 +370,6 @@
 
     // history API 事件监听
     window.addEventListener('popstate', () => {
-      console.log('[ks-bulk-delete] popstate event');
       startCheckLoop();
     });
 
@@ -379,7 +377,6 @@
     const _pushState = history.pushState;
     history.pushState = function() {
       _pushState.apply(this, arguments);
-      console.log('[ks-bulk-delete] pushState called');
       setTimeout(startCheckLoop, 100);
     };
 
@@ -387,19 +384,16 @@
     const _replaceState = history.replaceState;
     history.replaceState = function() {
       _replaceState.apply(this, arguments);
-      console.log('[ks-bulk-delete] replaceState called');
       setTimeout(startCheckLoop, 100);
     };
 
     // hashchange 监听
     window.addEventListener('hashchange', () => {
-      console.log('[ks-bulk-delete] hashchange event');
       startCheckLoop();
     });
   }
 
   function init() {
-    console.log('[ks-bulk-delete] init, URL:', location.href);
     startCheckLoop();
     observeUrlChange();
   }
